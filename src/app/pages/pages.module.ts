@@ -6,6 +6,7 @@ import { BookCardComponent } from './components/book-card/book-card.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { BookGridComponent } from './components/book-grid/book-grid.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     BookCardComponent,
     PageTitleComponent,
     BookGridComponent,
+    BookDetailComponent,
   ],
   imports: [CommonModule, PagesRoutingModule, HttpClientModule],
 })
