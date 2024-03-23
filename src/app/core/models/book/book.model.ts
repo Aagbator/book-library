@@ -83,11 +83,16 @@ export class Book {
   }
 
   get bookCover(): string {
-    return this.cover_edition_key ? `https://covers.openlibrary.org/b/olid/${this.cover_edition_key}-M.jpg` : '';
+    return this.cover_edition_key
+      ? `https://covers.openlibrary.org/b/olid/${this.cover_edition_key}-M.jpg`
+      : '';
   }
 
   get isbn(): string {
-    return this._isbn[0];
+    if (this._isbn && this._isbn.length > 0) {
+      return this._isbn[0];
+    }
+    return '';
   }
 
   set isbn(value: string[]) {
