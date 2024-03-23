@@ -1,1 +1,21 @@
-<p>book-card works!</p>
+<div class="book-card">
+  <div class="container">
+    <div class="cover">
+      <img *ngIf="false" alt="Book Image" />
+      <div class="default">
+        <p>No Cover</p>
+      </div>
+    </div>
+    <div class="details">
+      <ul>
+        <li>2005</li>
+        <li>Anthony joe</li>
+        <li><a>Author name</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div class="book-cta"><a>more</a>|<a>wishlist</a></div>
+    <button class="btn btn-orange">Remove to Wishlist</button>
+  </footer>
+</div>
