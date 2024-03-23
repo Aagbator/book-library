@@ -81,6 +81,6 @@ export class Book {
   }
 
   get bookCover(): string {
-    return `https://covers.openlibrary.org/b/olid/${this.cover_edition_key}-M.jpg`;
+    return this.cover_edition_key ? `https://covers.openlibrary.org/b/olid/${this.cover_edition_key}-M.jpg` : '';
   }
 }
