@@ -1,21 +1,27 @@
 <div class="book-card">
   <div class="container">
-    <div class="cover">
-      <img *ngIf="false" alt="Book Image" />
-      <div class="default">
+    <div
+      class="cover"
+      [ngStyle]="{ 'background-image': 'url(' + book?.bookCover + ')' }"
+    >
+      <div class="default" *ngIf="!book.bookCover">
         <p>No Cover</p>
       </div>
     </div>
     <div class="details">
       <ul>
-        <li>2005</li>
-        <li>Anthony joe</li>
-        <li><a>Author name</a></li>
+        <li>{{ book?.first_publish_year }}</li>
+        <li>{{ book?.title }}</li>
+        <li>
+          <a>{{ book?.author_name }}</a>
+        </li>
       </ul>
     </div>
   </div>
   <footer>
-    <div class="book-cta"><a>more</a>|<a>wishlist</a></div>
-    <button class="btn btn-orange">Remove to Wishlist</button>
+    <div *ngIf="!isWishlist" class="book-cta"><a>more</a>|<a>wishlist</a></div>
+    <button *ngIf="isWishlist" class="btn btn-orange">
+      Remove from Wishlist
+    </button>
   </footer>
 </div>
