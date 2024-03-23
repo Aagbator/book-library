@@ -1,12 +1,18 @@
 <header class="navbar">
   <div class="navbar-logo">
-    <a>Book Library</a>
+    <a routerLink="/">BookLibrary</a>
   </div>
   <nav class="navbar-menu">
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Search</a></li>
-      <li><a href="#">Wishlist</a></li>
+      <li class="navbar-menu-item">
+        <a routerLinkActive="active" routerLink="/">Home</a>
+      </li>
+      <li class="navbar-menu-item">
+        <a routerLinkActive="active" routerLink="/search">Search</a>
+      </li>
+      <li class="navbar-menu-item">
+        <a routerLinkActive="active" routerLink="/Wishlist">Wishlist</a>
+      </li>
     </ul>
   </nav>
 </header>
