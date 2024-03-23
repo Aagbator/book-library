@@ -21,6 +21,7 @@
           border-radius: 0.5rem;
         }
         p {
+          color: $gray-500;
           text-align: center;
         }
         .default {
@@ -34,6 +35,16 @@
       }
     .details {
       margin-left: .5rem;
+      .title {
+        font-size: 1.2rem;
+        &:hover {
+          cursor: pointer;
+          color: $orange;
+        }
+      }
+      .author {
+        color: $gray-600;
+      }
     }
   }
   footer {

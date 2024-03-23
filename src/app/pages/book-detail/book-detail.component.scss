@@ -1,0 +1,57 @@
+@import "../../../assets/scss/variables";
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: .5rem;
+  .container {
+    display: flex;
+    align-items: center;
+    .cover {
+        flex:0 0 10rem;
+        height: 14rem;
+        img {
+          background-size: cover;
+          object-fit: cover;
+          border-radius: 0.5rem;
+        }
+        p {
+          color: $gray-500;
+          text-align: center;
+        }
+        .default {
+          border: 2px solid $gray-200;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $gray-100;
+        }
+      }
+    .details {
+      margin-left: .5rem;
+      .title {
+        font-size: 1.2rem;
+      }
+      .author {
+        color: $gray-600;
+      }
+      button {
+        margin-top: .5rem;
+      }
+    }
+  }
+  footer {
+    padding: .5rem 0;
+    text-align: center;
+    .book-cta{
+      margin: 0 auto;
+      a {
+        font-weight: 400;
+        padding: .5rem;
+      }
+    }
+  }
+}

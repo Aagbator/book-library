@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../core/services/book/book.service';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Book } from '../../core/models/book/book.model';
+import {
+  ActivatedRoute,
+  ActivatedRouteSnapshot,
+  Router,
+} from '@angular/router';
 
 @Component({
   selector: 'app-book-detail',
@@ -9,11 +14,17 @@ import { Book } from '../../core/models/book/book.model';
   styleUrl: './book-detail.component.scss',
 })
 export class BookDetailComponent implements OnInit {
-  book$!: Observable<Book>;
+  book$!: Observable<Book | null>;
 
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService, private router: Router) {}
 
   ngOnInit(): void {
-    this.book$ = this.bookService.getBookByIsbn('1');
+    this.book$ = this.bookService.getSelectedBook().pipe(
+      tap((data) => {
+        if (!data) {
+          this.router.navigate(['/']);
+        }
+      })
+    );
   }
 }
