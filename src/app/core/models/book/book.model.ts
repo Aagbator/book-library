@@ -1,19 +1,21 @@
 export class Book {
+  private _isbn: string[];
   private _author_key: string[];
   private _author_name: string[];
   private _edition_count: number;
   private _cover_edition_key: string;
   private _first_publish_year: number;
-  private _number_of_pages_median: number;
+  private _number_of_pages: number;
   private _title: string;
 
   constructor(obj: any) {
+    this._isbn = obj.isbn;
     this._author_key = obj.author_key;
     this._author_name = obj.author_name;
     this._edition_count = obj.edition_count;
     this._cover_edition_key = obj.cover_edition_key;
     this._first_publish_year = obj.first_publish_year;
-    this._number_of_pages_median = obj.number_of_pages_median;
+    this._number_of_pages = obj.number_of_pages;
     this._title = obj.title;
   }
 
@@ -60,12 +62,12 @@ export class Book {
     this._cover_edition_key = value;
   }
 
-  get number_of_pages_median(): number {
-    return this._number_of_pages_median;
+  get number_of_pages(): number {
+    return this._number_of_pages;
   }
 
-  set number_of_pages_median(value: number) {
-    this._number_of_pages_median = value;
+  set number_of_pages(value: number) {
+    this._number_of_pages = value;
   }
 
   get title(): string {
@@ -82,5 +84,13 @@ export class Book {
 
   get bookCover(): string {
     return this.cover_edition_key ? `https://covers.openlibrary.org/b/olid/${this.cover_edition_key}-M.jpg` : '';
+  }
+
+  get isbn(): string {
+    return this._isbn[0];
+  }
+
+  set isbn(value: string[]) {
+    this._isbn = value;
   }
 }
