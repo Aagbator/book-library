@@ -7,7 +7,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class BookService {
-  private apiUrl = 'https://openlibrary.org/search.json';
+  private apiUrl = 'https://openlibrary.org';
+  private searchFields =
+    'title,author_name,first_publish_year,edition_count,number_of_pages,author_key,cover_edition_key,isbn';
 
   constructor(private http: HttpClient) {}
 
@@ -15,7 +17,7 @@ export class BookService {
     const encodedQuery = encodeURIComponent(queryStr).replace(/%20/g, '+');
     return this.http
       .get<any>(
-        `${this.apiUrl}?title=${encodedQuery}&fields=title,author_name,first_publish_year,edition_count,number_of_pages_median,author_key,cover_edition_key`
+        `${this.apiUrl}/search.json?title=${encodedQuery}&fields=${this.searchFields}`
       )
       .pipe(
         map((response: any) => {
@@ -30,6 +32,24 @@ export class BookService {
           console.error('Error fetching books:', error);
           return throwError(
             () => new Error('Failed to fetch books. Please try again later.')
+          );
+        })
+      );
+  }
+
+  getBookByIsbn(isbn: string): Observable<Book> {
+    return this.http
+      .get<Observable<Book>>(
+        `${this.apiUrl}/isbn/${isbn}.json?fields=${this.searchFields}`
+      )
+      .pipe(
+        map((response) => {
+          return new Book(response);
+        }),
+        catchError((error) => {
+          console.error('Error fetching book:', error);
+          return throwError(
+            () => new Error('Failed to fetch book. Please try again later.')
           );
         })
       );
