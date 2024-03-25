@@ -44,6 +44,12 @@
       }
       .author {
         color: $gray-600;
+        a {
+          &:hover {
+            cursor: pointer;
+            color: $orange;
+          }
+        }
       }
     }
   }
