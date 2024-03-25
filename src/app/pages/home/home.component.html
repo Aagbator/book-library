@@ -1,3 +1,8 @@
-<app-page-title [pageTitle]="'Subject : '+ searchSubject "></app-page-title>
+<app-page-title [pageTitle]="'Subject : ' + searchSubject"></app-page-title>
 
 <app-book-grid [books]="(books$ | async) || []"></app-book-grid>
+
+<!-- Loader component here -->
+<div class="loader" *ngIf="!(books$ | async)">
+  <p>Loading, please wait . . .</p>
+</div>
