@@ -2,6 +2,7 @@ export class Author {
   private _key: string;
   private _top_subjects: string[];
   private _birth_date: string;
+  private _top_work: string;
   private _work_count: number;
   private _name: string;
 
@@ -9,6 +10,7 @@ export class Author {
     this._key = obj.key;
     this._top_subjects = obj.top_subjects;
     this._birth_date = obj.birth_date;
+    this._top_work = obj.top_work;
     this._work_count = obj.work_count;
     this._name = obj.name;
   }
@@ -37,6 +39,14 @@ export class Author {
     this._birth_date = value;
   }
 
+  get top_work(): string {
+    return this._top_work;
+  }
+
+  set top_work(value: string) {
+    this._top_work = value;
+  }
+
   get work_count(): number {
     return this._work_count;
   }
@@ -54,6 +64,6 @@ export class Author {
   }
 
   get authorImage(): string {
-    return `https://covers.openlibrary.org/a/id/${this._key}-M.jpg`;
+    return `https://covers.openlibrary.org/a/olid/${this._key}-M.jpg`;
   }
 }

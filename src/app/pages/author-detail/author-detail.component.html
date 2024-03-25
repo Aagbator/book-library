@@ -1,0 +1,32 @@
+<div *ngIf="author$ | async as author">
+  <app-page-title [pageTitle]="author.name"></app-page-title>
+
+  <div class="author-details">
+    <div class="container">
+      <a
+        class="cover"
+        [ngStyle]="{ 'background-image': 'url(' + author?.authorImage + ')' }"
+      >
+        <div class="default" *ngIf="!author.authorImage">
+          <p>No Cover</p>
+        </div>
+      </a>
+      <div class="details">
+        <ul>
+          <li>{{ author?.birth_date }}</li>
+          <li class="top-work">
+            {{ author?.top_work }}
+          </li>
+          <li>{{ author?.work_count }}</li>
+        </ul>
+
+        <p>Top subjects of the Author (limit to first 5)</p>
+        <ul class="subject-list">
+          <li class="badge" *ngFor="let subject of author?.top_subjects">
+            {{ subject }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

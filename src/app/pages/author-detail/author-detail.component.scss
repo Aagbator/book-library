@@ -1,0 +1,54 @@
+@import "../../../assets/scss/variables";
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: .5rem;
+  .container {
+    display: flex;
+    align-items: center;
+    .cover {
+        background-color: $gray-200;
+        flex:0 0 10rem;
+        height: 14rem;
+        img {
+          background-size: cover;
+          object-fit: cover;
+          border-radius: 0.5rem;
+        }
+        p {
+          color: $gray-500;
+          text-align: center;
+        }
+        .default {
+          border: 2px solid $gray-200;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $gray-100;
+        }
+      }
+    .details {
+      margin-left: .5rem;
+      .top-work {
+        font-size: 1.3rem;
+      }
+
+      .subject-list {
+        display: flex;
+        flex-wrap: wrap;
+        .badge {
+          display: block;
+          border-radius: .5rem;
+          padding: .1rem .3rem;
+          margin : .2rem;
+          background-color: $yellow;
+        }
+      }
+    }
+
+  }
+}
